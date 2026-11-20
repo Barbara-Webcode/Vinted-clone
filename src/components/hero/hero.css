@@ -1,0 +1,5 @@
+section .hero {
+  background-color: rgb(111, 174, 180);
+  height: 460px;
+  margin-bottom: 20px;
+}

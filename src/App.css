@@ -1,0 +1,9 @@
+:root {
+  --primary-blue: rgb(0, 119, 130);
+}
+
+.container {
+  background-color: rgb(232, 210, 210);
+  width: 1285px;
+  margin: 0 auto;
+}
