@@ -2,6 +2,8 @@ import "./home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { DNA } from "react-loader-spinner";
+import Hero from "../Hero/Hero";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -24,42 +26,65 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="home">
-      <div className="container">
-        {isLoading ? (
-          <p>Chargment en cours</p>
-        ) : (
-          <section>
-            {data.offers.map((offer) => {
-              return (
-                <article>
-                  <div className="owner">
-                    <img
-                      className="avatar"
-                      src={offer.owner.account.avatar.secure_url}
-                      alt="avatar owner"
-                    />
-                    <p>{offer.owner.account.username}</p>
-                  </div>
-                  <Link to={`/offer/${offer._id}`}>
-                    {console.log(offer._id)}
-                    <img
-                      className="article-img"
-                      src={offer.product_image.secure_url}
-                      alt="picture acticle"
-                    />
-                    <div className="price">
-                      <p>{offer.product_price} €</p>
-                      <p></p>
+    <>
+      <Hero />
+
+      <main className="home">
+        <div className="container">
+          {isLoading ? (
+            <section className="loading">
+              <DNA
+                height={100}
+                width={1200}
+                color="#4fa94d"
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#4fa94d"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+              <p>Chargement en cours...</p>
+            </section>
+          ) : (
+            <section>
+              {data.offers.map((offer) => {
+                return (
+                  <article key={offer.id}>
+                    <div className="owner">
+                      <img
+                        className="avatar"
+                        src={offer.owner.account.avatar.secure_url}
+                        alt="avatar owner"
+                      />
+                      <p>{offer.owner.account.username}</p>
                     </div>
-                  </Link>
-                </article>
-              );
-            })}
-          </section>
-        )}
-      </div>
-    </main>
+                    <Link to={`/offer/${offer._id}`} className="offers">
+                      <img
+                        className="article-img"
+                        src={offer.product_image.secure_url}
+                        alt="picture acticle"
+                      />
+                      <div className="price">
+                        <p>{offer.product_price} €</p>
+                        {offer.product_details.map((details) => {
+                          return details.TAILLE ? (
+                            <p key={details.TAILLE}>{details.TAILLE}</p>
+                          ) : (
+                            details.MARQUE && <p>{details.MARQUE}</p>
+                          );
+                        })}
+
+                        <p></p>
+                      </div>
+                    </Link>
+                  </article>
+                );
+              })}
+            </section>
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 

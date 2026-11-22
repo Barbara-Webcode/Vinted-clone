@@ -1,0 +1,33 @@
+.little-btn {
+  width: 110px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.big-btn {
+  width: 275px;
+  height: 45px;
+  font-size: 16px;
+}
+
+.blue-btn {
+  background-color: var(--primary-blue);
+  color: white;
+  border: 1px solid white;
+}
+
+.white-btn {
+  background-color: white;
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+}
+
+.red-btn {
+  background-color: var(--color-red);
+  color: white;
+  border: 1px solid white;
+}
+
+button {
+  border-radius: 5px;
+}

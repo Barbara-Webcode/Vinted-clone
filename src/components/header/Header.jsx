@@ -1,5 +1,6 @@
 import "./header.css";
 import logo from "../../assets/img/logo.png";
+import "../Button/button.css";
 
 const Header = () => {
   return (
@@ -8,10 +9,10 @@ const Header = () => {
         <img src={logo} alt="logo Vinted" />
         <input type="text" placeholder="Recherche des articles " />
         <div className="connecting-btn">
-          <button>S'inscrire</button>
-          <button>Se connecter</button>
+          <button className="white-btn little-btn">S'inscrire</button>
+          <button className="white-btn little-btn">Se connecter</button>
         </div>
-        <button>Vends tes articles</button>
+        <button className="blue-btn little-btn">Vends tes articles</button>
       </div>
     </header>
   );

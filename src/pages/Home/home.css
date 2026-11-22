@@ -4,10 +4,17 @@ section {
   flex-wrap: wrap;
 }
 
+article {
+  margin-bottom: 10px;
+}
 .owner {
   display: flex;
   gap: 10px;
   color: lightgrey;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  font-size: 12px;
 }
 
 .avatar {
@@ -19,8 +26,25 @@ section {
   width: calc((1285px - 40px) / 5);
   margin-bottom: 30px;
 }
+
 .article-img {
-  height: 359px;
-  width: 240px;
+  height: 360px;
+  width: 100%;
   object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.offers {
+  text-decoration: none;
+}
+.price p {
+  padding: 0 0 3px 10px;
+}
+.price > p {
+  font-size: 14px;
+  color: var(--color-black);
+}
+article .price p:not(:first-child) {
+  font-size: 12px;
+  color: var(--color-grey);
 }
