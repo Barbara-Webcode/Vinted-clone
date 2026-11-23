@@ -1,18 +1,47 @@
 import "./header.css";
 import logo from "../../assets/img/logo.png";
 import "../Button/button.css";
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+import Cookies from "js-cookie";
+import { IoSearchSharp } from "react-icons/io5";
 
-const Header = () => {
+const Header = ({ userToken, setUserToken }) => {
   return (
     <header>
       <div className="container">
-        <img src={logo} alt="logo Vinted" />
-        <input type="text" placeholder="Recherche des articles " />
-        <div className="connecting-btn">
-          <button className="white-btn little-btn">S'inscrire</button>
-          <button className="white-btn little-btn">Se connecter</button>
+        <Link to="/">
+          <img src={logo} alt="logo Vinted" />
+        </Link>
+        <div className="header-icon">
+          <div className="icon">
+            <IoSearchSharp />
+          </div>
+          <input type="text" placeholder="Recherche des articles " />
         </div>
-        <button className="blue-btn little-btn">Vends tes articles</button>
+
+        <div className="connecting-buttons">
+          {userToken ? (
+            <Button
+              active={() => {
+                Cookies.remove("userToken");
+                setUserToken(null);
+              }}
+              text="Se déconnecter"
+              className="little-btn red-button"
+            />
+          ) : (
+            <div className="connecting-btn">
+              <Link to="/signup">
+                <Button className="little-btn white-btn" text="S'inscrire" />
+              </Link>
+              <Link to="/login">
+                <Button className="little-btn white-btn" text="Se connecter" />
+              </Link>
+            </div>
+          )}
+          <Button className="blue-btn little-btn" text="Vends tes articles" />
+        </div>
       </div>
     </header>
   );

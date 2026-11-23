@@ -49,7 +49,7 @@ const Home = () => {
             <section>
               {data.offers.map((offer) => {
                 return (
-                  <article key={offer.id}>
+                  <article key={offer._id}>
                     <div className="owner">
                       <img
                         className="avatar"
@@ -62,19 +62,29 @@ const Home = () => {
                       <img
                         className="article-img"
                         src={offer.product_image.secure_url}
-                        alt="picture acticle"
+                        alt="Aperçu de l'offre"
                       />
                       <div className="price">
                         <p>{offer.product_price} €</p>
-                        {offer.product_details.map((details) => {
-                          return details.TAILLE ? (
-                            <p key={details.TAILLE}>{details.TAILLE}</p>
-                          ) : (
-                            details.MARQUE && <p>{details.MARQUE}</p>
+                        {offer.product_details.map((details, index) => {
+                          return (
+                            details.TAILLE && (
+                              <p key={details.TAILLE + index}>
+                                {details.TAILLE}
+                              </p>
+                            )
                           );
                         })}
 
-                        <p></p>
+                        {offer.product_details.map((details, index) => {
+                          return (
+                            details.MARQUE && (
+                              <p key={details.MARQUE + index}>
+                                {details.MARQUE}
+                              </p>
+                            )
+                          );
+                        })}
                       </div>
                     </Link>
                   </article>
