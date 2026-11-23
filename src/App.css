@@ -2,7 +2,7 @@
   --primary-blue: rgb(0, 119, 130);
   --color-light-grey: rgb(245, 246, 247);
   --color-grey: rgb(194, 194, 194);
-  --color-grey-loading: grey;
+  --color-dark-grey: grey;
   --color-grey-background: rgb(235, 237, 238);
   --color-red: #c2175b;
   --color-black: rgb(9, 9, 9);
@@ -28,7 +28,7 @@ body {
 
 .loading p {
   font-size: 20px;
-  color: var(--color-grey-loading);
+  color: var(--color-dark-grey);
 }
 
 h1 {

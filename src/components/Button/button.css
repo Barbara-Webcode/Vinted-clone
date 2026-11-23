@@ -12,20 +12,20 @@
 
 .blue-btn {
   background-color: var(--primary-blue);
-  color: white;
-  border: 1px solid white;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
 }
 
 .white-btn {
-  background-color: white;
+  background-color: var(--color-white);
   color: var(--primary-blue);
   border: 1px solid var(--primary-blue);
 }
 
 .red-btn {
   background-color: var(--color-red);
-  color: white;
-  border: 1px solid white;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
 }
 
 button {

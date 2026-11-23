@@ -76,14 +76,18 @@ const SignUp = ({ setUserToken }) => {
             {errorMessage && <p className="error">{errorMessage}</p>}
 
             <div className="newsLetter">
-              <input
-                type="checkbox"
-                name="newsLetter"
-                id="newsLetter"
-                checked={newsLetter}
-                onChange={() => setNewsLetter(!newsLetter)}
-              />
-              <label htmlFor="newsLetter">S'inscrire à notre newsletter</label>
+              <div className="container-newsLetter">
+                <input
+                  type="checkbox"
+                  name="newsLetter"
+                  id="newsLetter"
+                  checked={newsLetter}
+                  onChange={() => setNewsLetter(!newsLetter)}
+                />
+                <label htmlFor="newsLetter">
+                  S'inscrire à notre newsletter
+                </label>
+              </div>
               <p>
                 En m'inscrivant je confirme avoir lu et accepté les Termes &
                 Conditions et Politique de Confidentialité de Vinted. Je
