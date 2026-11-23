@@ -1,12 +1,13 @@
 import "./header.css";
 import logo from "../../assets/img/logo.png";
-// import "../Button/button.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Cookies from "js-cookie";
 import { IoSearchSharp } from "react-icons/io5";
 
 const Header = ({ userToken, setUserToken }) => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="container">
@@ -26,9 +27,10 @@ const Header = ({ userToken, setUserToken }) => {
               active={() => {
                 Cookies.remove("userToken");
                 setUserToken(null);
+                navigate("/login");
               }}
               text="Se déconnecter"
-              className="little-btn red-button"
+              className="little-btn red-btn"
             />
           ) : (
             <div className="connecting-btn">
