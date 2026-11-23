@@ -1,0 +1,26 @@
+.form-signup > :first-child,
+.form-signup > :last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.newsLetter {
+  padding: 0 20px 0 20px;
+}
+input[type="checkbox"] {
+  accent-color: var(--primary-blue);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--color-grey);
+  cursor: pointer;
+}
+.newsLetter p {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.msg-inscription {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 13px;
+}

@@ -46,10 +46,10 @@ const SignUp = ({ setUserToken }) => {
 
   return (
     <>
-      <main className="signup">
-        <div className="container-signup">
-          <form onSubmit={handleSubmit}>
-            <h1>S'inscrire</h1>
+      <main className="main-connecting">
+        <div className="connecting-container">
+          <h1>S'inscrire</h1>
+          <form className="form-signup" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Nom d'utilisateur"
@@ -91,8 +91,8 @@ const SignUp = ({ setUserToken }) => {
               </p>
             </div>
             <Button text="S'inscrire" className="big-btn blue-btn" />
-            <Link to="/login">
-              <p>Tu as déja un compte ? Connecte-toi !</p>
+            <Link to="/login" className="msg-inscription">
+              Tu as déja un compte ? Connecte-toi !
             </Link>
           </form>
         </div>

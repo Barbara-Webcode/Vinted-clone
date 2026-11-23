@@ -1,0 +1,25 @@
+.connecting-container form input:not([type="checkbox"]) {
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #fddfdf;
+}
+.main-connecting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.connecting-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  align-items: center;
+}
+
+.connecting-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 20px;
+}

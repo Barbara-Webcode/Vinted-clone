@@ -39,15 +39,15 @@ const Login = ({ setUserToken }) => {
     }
   };
   return (
-    <main className="login">
-      <div className="container">
+    <main className="main-connecting">
+      <div className="connecting-container">
         <h1>Se connecter</h1>
         <form onSubmit={handleSubmit}>
           <LogInput
             value={email}
             setValue={setEmail}
             type="email"
-            placeholder="Email"
+            placeholder="Adresse email"
             id="email"
           />
           <LogInput
@@ -60,7 +60,9 @@ const Login = ({ setUserToken }) => {
           {errorMessage && <p className="error">{errorMessage}</p>}
           <Button text="Se connecter" className="big-btn blue-btn" />
         </form>
-        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        <Link to="/signup" className="msg-inscription">
+          Pas encore de compte ? Inscris-toi !
+        </Link>
       </div>
     </main>
   );

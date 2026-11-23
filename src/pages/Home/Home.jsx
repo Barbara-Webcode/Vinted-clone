@@ -36,10 +36,8 @@ const Home = () => {
               <DNA
                 height={100}
                 width={1200}
-                color="#4fa94d"
                 visible={true}
                 ariaLabel="oval-loading"
-                secondaryColor="#4fa94d"
                 strokeWidth={2}
                 strokeWidthSecondary={2}
               />
@@ -51,19 +49,24 @@ const Home = () => {
                 return (
                   <article key={offer._id}>
                     <div className="owner">
-                      <img
-                        className="avatar"
-                        src={offer.owner.account.avatar.secure_url}
-                        alt="avatar owner"
-                      />
+                      {offer.owner.account.avatar && (
+                        <img
+                          className="avatar"
+                          src={offer.owner.account.avatar.secure_url}
+                          alt="avatar owner"
+                        />
+                      )}
                       <p>{offer.owner.account.username}</p>
                     </div>
                     <Link to={`/offer/${offer._id}`} className="offers">
-                      <img
-                        className="article-img"
-                        src={offer.product_image.secure_url}
-                        alt="Aperçu de l'offre"
-                      />
+                      {offer.product_image?.secure_url && (
+                        <img
+                          className="article-img"
+                          src={offer.product_image.secure_url}
+                          alt="Aperçu de l'offre"
+                        />
+                      )}
+
                       <div className="price">
                         <p>{offer.product_price} €</p>
                         {offer.product_details.map((details, index) => {
