@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Cookies from "js-cookie";
 import { IoSearchSharp } from "react-icons/io5";
+import { Range } from "react-range";
+import { useState } from "react";
 
 const Header = ({ userToken, setUserToken }) => {
   const navigate = useNavigate();
+  const [values, setValues] = useState([50, 100]);
 
   return (
     <header>
@@ -14,11 +17,63 @@ const Header = ({ userToken, setUserToken }) => {
         <Link to="/">
           <img src={logo} alt="logo Vinted" />
         </Link>
-        <div className="header-icon">
-          <div className="icon">
-            <IoSearchSharp />
+
+        <div className="filter">
+          <div className="header-icon">
+            <div className="icon">
+              <IoSearchSharp />
+            </div>
+            <input type="text" placeholder="Recherche des articles " />
           </div>
-          <input type="text" placeholder="Recherche des articles " />
+
+          <div className="price-filter">
+            <span>Prix entre :</span>
+            <Range
+              label="Select your value"
+              step={1}
+              min={0}
+              max={1000}
+              values={values}
+              onChange={(values) => {
+                console.log(values);
+                return setValues(values);
+              }}
+              renderTrack={({ props, children }) => {
+                console.log(props, children);
+                return (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: "2px",
+                      width: "250px",
+                      backgroundColor: "#007782",
+                    }}>
+                    {children}
+                  </div>
+                );
+              }}
+              renderThumb={({ props }) => {
+                // console.log(props);
+                return (
+                  <>
+                    <div
+                      {...props}
+                      key={props.key}
+                      style={{
+                        ...props.style,
+                        height: "10px",
+                        width: "10px",
+                        backgroundColor: "teal",
+                        borderRadius: "50%",
+                      }}>
+                      <p className="tag">{values[props.key]}€</p>
+                    </div>
+                  </>
+                );
+              }}
+            />
+          </div>
         </div>
 
         <div className="connecting-buttons">

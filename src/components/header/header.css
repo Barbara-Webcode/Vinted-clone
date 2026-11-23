@@ -27,12 +27,30 @@ header input {
 
 .header-icon {
   position: relative;
+  margin-bottom: 15px;
 }
 .icon {
   position: absolute;
   color: var(--color-grey);
   top: 12px;
   left: 7px;
+}
+
+.price-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 11px;
+  justify-content: center;
+}
+.tag {
+  position: absolute;
+  top: -19px;
+  background-color: var(--prim);
+  color: white;
+  font-size: 11px;
+  padding: 2px;
+  border-radius: 3px;
 }
 
 header .connecting-btn {
