@@ -43,7 +43,7 @@ const Home = ({ title, priceMin, priceMax }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [title, priceMin, priceMax]);
 
   return (
     <>

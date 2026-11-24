@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import Publish from "./pages/Publish/Publish";
 
 const App = () => {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
@@ -46,6 +47,7 @@ const App = () => {
             path="/login"
             element={<Login setUserToken={setUserToken} />}
           />
+          <Route path="/publish" element={<Publish />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

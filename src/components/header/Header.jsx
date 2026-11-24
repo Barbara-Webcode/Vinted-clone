@@ -82,7 +82,9 @@ const Header = ({
               </Link>
             </div>
           )}
-          <Button className="blue-btn little-btn" text="Vends tes articles" />
+          <Link to="/publish">
+            <Button className="blue-btn little-btn" text="Vends tes articles" />
+          </Link>
         </div>
       </div>
     </header>
