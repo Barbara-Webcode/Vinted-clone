@@ -4,12 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Cookies from "js-cookie";
 import { IoSearchSharp } from "react-icons/io5";
-import { Range } from "react-range";
-import { useState } from "react";
 
-const Header = ({ userToken, setUserToken }) => {
+const Header = ({
+  userToken,
+  setUserToken,
+  title,
+  setTitle,
+  priceMin,
+  priceMax,
+  setPriceMin,
+  setPriceMax,
+}) => {
   const navigate = useNavigate();
-  const [values, setValues] = useState([50, 100]);
 
   return (
     <header>
@@ -23,54 +29,33 @@ const Header = ({ userToken, setUserToken }) => {
             <div className="icon">
               <IoSearchSharp />
             </div>
-            <input type="text" placeholder="Recherche des articles " />
+            <input
+              type="text"
+              placeholder="Recherche des articles "
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
           </div>
 
           <div className="price-filter">
-            <span>Prix entre :</span>
-            <Range
-              label="Select your value"
-              step={1}
-              min={0}
-              max={1000}
-              values={values}
-              onChange={(values) => {
-                console.log(values);
-                return setValues(values);
+            <label htmlFor="priceMin">Prix minimum</label>
+            <input
+              type="number"
+              id="priceMin"
+              value={priceMin}
+              onChange={(event) => {
+                setPriceMin(event.target.value);
               }}
-              renderTrack={({ props, children }) => {
-                console.log(props, children);
-                return (
-                  <div
-                    {...props}
-                    style={{
-                      ...props.style,
-                      height: "2px",
-                      width: "250px",
-                      backgroundColor: "#007782",
-                    }}>
-                    {children}
-                  </div>
-                );
-              }}
-              renderThumb={({ props }) => {
-                // console.log(props);
-                return (
-                  <>
-                    <div
-                      {...props}
-                      key={props.key}
-                      style={{
-                        ...props.style,
-                        height: "10px",
-                        width: "10px",
-                        backgroundColor: "teal",
-                        borderRadius: "50%",
-                      }}>
-                      <p className="tag">{values[props.key]}€</p>
-                    </div>
-                  </>
-                );
+            />
+            <label htmlFor="priceMax">Prix maximum</label>
+            <input
+              type="number"
+              id="priceMax"
+              value={priceMax}
+              onChange={(event) => {
+                setPriceMax(event.target.value);
               }}
             />
           </div>

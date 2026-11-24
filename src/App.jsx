@@ -11,13 +11,31 @@ import { useState } from "react";
 
 const App = () => {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [title, setTitle] = useState("");
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(1000);
+
   return (
     <>
       <Router>
-        <Header userToken={userToken} setUserToken={setUserToken} />
+        <Header
+          userToken={userToken}
+          setUserToken={setUserToken}
+          title={title}
+          setTitle={setTitle}
+          priceMin={priceMin}
+          setPriceMin={setPriceMin}
+          priceMax={priceMax}
+          setPriceMax={setPriceMax}
+        />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home title={title} priceMin={priceMin} priceMax={priceMax} />
+            }
+          />
           <Route path="/offer/:id" element={<Offer />} />
 
           <Route

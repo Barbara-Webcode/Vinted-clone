@@ -5,15 +5,35 @@ import { Link } from "react-router-dom";
 import { DNA } from "react-loader-spinner";
 import Hero from "../Hero/Hero";
 
-const Home = () => {
+const Home = ({ title, priceMin, priceMax }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      let filters = "";
+      if (title) {
+        filters += `?title=${title}`;
+      }
+
+      if (priceMin) {
+        if (filters) {
+          filters += `&priceMin=${priceMin}`;
+        } else {
+          filters += `?priceMin=${priceMin}`;
+        }
+      }
+      if (priceMax) {
+        if (filters) {
+          filters += `&priceMax=${priceMax}`;
+        } else {
+          filters += `?priceMax=${priceMax}`;
+        }
+      }
+
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers",
+          `https://lereacteur-vinted-api.herokuapp.com/offers${filters}`,
         );
         // console.log(response.data); ok
         setData(response.data);
